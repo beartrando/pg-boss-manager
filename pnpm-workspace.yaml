@@ -1,0 +1,3 @@
+allowBuilds:
+  "@shared/logger@git+https://github.com/beartrando/logger.git": true
+  "@shared/kafka-manager@git+https://github.com/beartrando/kafka-manager.git": true
