@@ -26,8 +26,8 @@
   },
   "dependencies": {
     "pg-boss": "^12.15.0",
-    "@shared/logger": "git+https://github.com/beartrando/logger.git#v1.0.0",
-    "@shared/kafka-manager": "git+https://github.com/beartrando/kafka-manager.git#v1.0.0"
+    "@shared/logger": "workspace:*",
+    "@shared/kafka-manager": "workspace:*"
   },
   "files": [
     "dist"
