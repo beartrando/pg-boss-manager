@@ -63,4 +63,4 @@ export class PgBossManager {
 export const pgBossManager = new PgBossManager();
 
 // Export types
-export { PgBossConfig, SqlExecutor };
+export {PgBossConfig, SqlExecutor};

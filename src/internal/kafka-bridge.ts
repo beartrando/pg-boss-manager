@@ -1,8 +1,4 @@
-import { KafkaConfig } from '@shared/kafka-manager';
-
-import {
-    createProducer,
-} from '@shared/kafka-manager';
+import {createProducer, KafkaConfig} from '@shared/kafka-manager';
 
 import WorkerManager from './worker-manager';
 

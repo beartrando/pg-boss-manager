@@ -1,13 +1,11 @@
-import {
-    BossProvider,
-    SqlExecutor,
-} from './interfaces';
+import {BossProvider, SqlExecutor,} from './interfaces';
 
 export class QueueManager {
 
     constructor(
         private readonly bossProvider: BossProvider,
-    ) {}
+    ) {
+    }
 
     /**
      * Enqueue job.

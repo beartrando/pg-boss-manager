@@ -13,20 +13,13 @@ import BossProvider from './internal/interfaces';
 
 export class PgBossManager implements BossProvider {
 
-    private boss: PgBoss | null = null;
-
-    private config?: PgBossConfig;
-
-    private running = false;
-
-    private readonly reconnectDelay = 3000;
-
     public readonly workers: WorkerManager;
-
     public readonly queue: QueueManager;
-
     public readonly kafka: KafkaBridge;
-
+    private boss: PgBoss | null = null;
+    private config?: PgBossConfig;
+    private running = false;
+    private readonly reconnectDelay = 3000;
     private readyPromise!: Promise<void>;
 
     private readyResolver!: () => void;
@@ -43,15 +36,6 @@ export class PgBossManager implements BossProvider {
 
         this.kafka = new KafkaBridge(
             this.workers,
-        );
-    }
-
-    private createReadyPromise(): void {
-
-        this.readyPromise = new Promise<void>(
-            resolve => {
-                this.readyResolver = resolve;
-            },
         );
     }
 
@@ -128,6 +112,34 @@ export class PgBossManager implements BossProvider {
         this.running = false;
 
         await this.cleanup();
+    }
+
+    /**
+     * Get active PgBoss instance.
+     */
+    public getBoss(): PgBoss {
+
+        if (!this.boss) {
+
+            throw new Error(
+                'PgBoss is not connected',
+            );
+        }
+
+        return this.boss;
+    }
+
+    async check(): Promise<boolean> {
+        return this.tryGetBoss() !== null;
+    }
+
+    private createReadyPromise(): void {
+
+        this.readyPromise = new Promise<void>(
+            resolve => {
+                this.readyResolver = resolve;
+            },
+        );
     }
 
     /**
@@ -223,24 +235,5 @@ export class PgBossManager implements BossProvider {
         logger.warn(
             'PgBoss disconnected',
         );
-    }
-
-    /**
-     * Get active PgBoss instance.
-     */
-    public getBoss(): PgBoss {
-
-        if (!this.boss) {
-
-            throw new Error(
-                'PgBoss is not connected',
-            );
-        }
-
-        return this.boss;
-    }
-
-    async check(): Promise<boolean> {
-        return this.tryGetBoss() !== null;
     }
 }

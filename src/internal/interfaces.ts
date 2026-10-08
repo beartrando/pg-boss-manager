@@ -1,4 +1,4 @@
-import { PgBoss } from 'pg-boss';
+import {PgBoss} from 'pg-boss';
 
 export interface BossProvider {
 
@@ -20,7 +20,9 @@ export interface SqlExecutor {
 
 export interface BossProvider {
     getBoss(): PgBoss;
+
     tryGetBoss(): PgBoss | null;
+
     waitUntilReady(): Promise<PgBoss>;
 }
 

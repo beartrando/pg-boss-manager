@@ -1,18 +1,10 @@
 import {Job} from 'pg-boss';
 
-import {
-    BatchWorkerHandler,
-    WorkerHandler,
-} from '../types';
+import {BatchWorkerHandler, WorkerHandler,} from '../types';
 
-import {
-    BossProvider,
-} from './interfaces';
+import {BossProvider,} from './interfaces';
 
-import {
-    InternalBatchWorkerRegistration,
-    InternalWorkerRegistration,
-} from './types';
+import {InternalBatchWorkerRegistration, InternalWorkerRegistration,} from './types';
 
 import logger from '@shared/logger';
 
@@ -24,7 +16,8 @@ export class WorkerManager {
 
     constructor(
         private readonly bossProvider: BossProvider,
-    ) {}
+    ) {
+    }
 
     /**
      * Register worker.
@@ -191,7 +184,7 @@ export class WorkerManager {
 
         } catch (err) {
             logger.info(
-                { err },
+                {err},
                 `Queue already exists ${topic}`,
             );
         }

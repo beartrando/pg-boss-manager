@@ -1,7 +1,4 @@
-import {
-    BatchWorkerHandler,
-    WorkerHandler,
-} from '../types';
+import {BatchWorkerHandler, WorkerHandler,} from '../types';
 
 
 export type InternalWorkerRegistration = {
