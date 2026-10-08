@@ -10,8 +10,7 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "dev": "tsc -w -p tsconfig.json",
-    "prepare": "tsc -p tsconfig.json"
+    "dev": "tsc -w -p tsconfig.json"
   },
   "exports": {
     ".": {
@@ -31,6 +30,5 @@
   },
   "files": [
     "dist"
-  ],
-  "packageManager": "pnpm@11.28.4"
+  ]
 }
