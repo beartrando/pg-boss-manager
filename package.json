@@ -1,7 +1,7 @@
 {
   "name": "@shared/pg-boss-manager",
   "version": "1.0.0",
-  "description": "Lenvora shared pg-boss job queue manager",
+  "description": "Shared pg-boss job queue manager",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": {
